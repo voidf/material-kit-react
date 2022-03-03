@@ -38,19 +38,20 @@ export default function ShopProductCard({ product, onJudge }) {
   );
 
   return (
-    <Card onMouseEnter={() => {
-      setsx({
-        width: 560,
-        height: 'auto',
-        position: 'absolute'
-      });
-      setonhover(true);
-    }} onMouseLeave={() => {
-      setsx({
-        position: 'relative'
-      }); setonhover(false);
-    }}>
-      <Link target="_blank" to={`//localhost:11001/bin/${product.id}`} color="inherit" underline="hover" component={RouterLink}>
+    <Card>
+      <Link target="_blank" to={`//localhost:11001/bin/${product.id}`} color="inherit" underline="hover" component={RouterLink}
+       onMouseEnter={() => {
+        setsx({
+          width: 560,
+          height: 'auto',
+          position: 'absolute'
+        });
+        setonhover(true);
+      }} onMouseLeave={() => {
+        setsx({
+          position: 'relative'
+        }); setonhover(false);
+      }}>
         <Box sx={{
           pt: '100%',
           position: 'relative'
@@ -60,7 +61,7 @@ export default function ShopProductCard({ product, onJudge }) {
       </Link>
 
       <Stack spacing={2} sx={{ p: 3 }}>
-        <Link target="_blank" to={`//localhost:11001/bin/${product.id}`} color="inherit" underline="hover" component={RouterLink}>
+        <Link target="_blank" to={`//www.pixiv.net/artworks/${product.id}`} color="inherit" underline="hover" component={RouterLink}>
           <Typography variant="subtitle2" noWrap>
             {name}
           </Typography>

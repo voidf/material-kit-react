@@ -4,6 +4,15 @@
 
 所用后端：[https://github.com/voidf/nszyPixivActions](https://github.com/voidf/nszyPixivActions)
 
+安装使用：
+
+克隆仓库 -> 进入目录
+
+```
+npm i
+npm run start
+```
+
 # 以下是原组件的README：
 
 ## Minimal [(Free version)](https://minimal-kit-react.vercel.app/)
