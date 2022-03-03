@@ -1,3 +1,11 @@
+# 自建图库审图前端
+
+![预览](assets/preview.png)
+
+所用后端：[https://github.com/voidf/nszyPixivActions](https://github.com/voidf/nszyPixivActions)
+
+# 以下是原组件的README：
+
 ## Minimal [(Free version)](https://minimal-kit-react.vercel.app/)
 
 ![license](https://img.shields.io/badge/license-MIT-blue.svg)

@@ -8,6 +8,7 @@ import { fCurrency } from '../../../utils/formatNumber';
 //
 import Label from '../../../components/Label';
 import ColorPreview from '../../../components/ColorPreview';
+import { useState } from 'react';
 
 // ----------------------------------------------------------------------
 
@@ -28,26 +29,35 @@ ShopProductCard.propTypes = {
 export default function ShopProductCard({ product, onJudge }) {
   const { name, cover, price, colors, status, priceSale } = product;
 
+
+  const [onhover, setonhover] = useState(false);
+  const [sx, setsx] = useState(
+    {
+      position: 'relative'
+    }
+  );
+
   return (
-    <Card>
-      <Box sx={{ pt: '100%', position: 'relative' }}>
-        {status && (
-          <Label
-            variant="filled"
-            color={(status === 'sale' && 'error') || 'info'}
-            sx={{
-              zIndex: 9,
-              top: 16,
-              right: 16,
-              position: 'absolute',
-              textTransform: 'uppercase'
-            }}
-          >
-            {status}
-          </Label>
-        )}
-        <ProductImgStyle alt={name} src={cover} />
-      </Box>
+    <Card onMouseEnter={() => {
+      setsx({
+        width: 560,
+        height: 'auto',
+        position: 'absolute'
+      });
+      setonhover(true);
+    }} onMouseLeave={() => {
+      setsx({
+        position: 'relative'
+      }); setonhover(false);
+    }}>
+      <Link target="_blank" to={`//localhost:11001/bin/${product.id}`} color="inherit" underline="hover" component={RouterLink}>
+        <Box sx={{
+          pt: '100%',
+          position: 'relative'
+        }}>
+          <ProductImgStyle sx={onhover ? sx : {}} alt={name} src={cover} />
+        </Box>
+      </Link>
 
       <Stack spacing={2} sx={{ p: 3 }}>
         <Link target="_blank" to={`//localhost:11001/bin/${product.id}`} color="inherit" underline="hover" component={RouterLink}>
@@ -57,18 +67,16 @@ export default function ShopProductCard({ product, onJudge }) {
         </Link>
 
         <Button
-        color="inherit"
-        disableRipple
-        onClick={()=>{onJudge(product.id, true);}}
-      >Pass</Button>
+          color="inherit"
+          onClick={() => { onJudge(product.id, true); }}
+        >Pass</Button>
 
         <Button
-        color="inherit"
-        disableRipple
-        onClick={()=>{onJudge(product.id, false);}}
-      >Refuse</Button>
+          color="inherit"
+          onClick={() => { onJudge(product.id, false); }}
+        >Refuse</Button>
 
-        
+
       </Stack>
     </Card>
   );
