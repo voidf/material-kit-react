@@ -64,19 +64,18 @@ export default function EcommerceShop() {
   const getSetu = () => {
     if (shouldIGet) {
       setshouldIGet(false);
-      axios.get(baseUrl + "pendinglist").then(resp => {
+      axios.get(`${baseUrl}pendinglist`).then(resp => {
         console.log(resp.data);
-        setSetu(resp.data.map((setu) => {
-          return {
+        setSetu(resp.data.map((setu) => ({
             id: setu._id,
-            cover: baseUrl + "bin/" + setu._id,
+            cover: `${baseUrl}bin/${setu._id}`,
             name: setu.title,
             price: 233,
             priceSale: 114,
             colors: ['#00ABDD', '#FFE433'],
             status: ''
-          };
-        }));
+          })
+        ));
 
         console.log(Object.values(resp.data));
       });
@@ -105,7 +104,7 @@ export default function EcommerceShop() {
   };
 
   return (
-    <Page title="Dashboard: 色图 | Minimal-UI">
+    <Page title="审图 | Minimal-UI">
       <Container>
         {/* <Typography variant="h4" sx={{ mb: 5 }}>
           Products
