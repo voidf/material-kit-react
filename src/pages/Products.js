@@ -127,7 +127,7 @@ export default function EcommerceShop() {
 
   const [keycode, setKeyCode] = useState('AFK');
 
-  const keyDefault = ['KeyS', 'KeyD', 'KeyF', 'KeyJ', 'KeyK', 'KeyL', 'Space'];
+  const keyDefault = ['KeyS', 'KeyD', 'KeyF', 'KeyJ', 'KeyK', 'KeyL', 'KeyQ'];
 
   // const keyStates = [...Array(keyDefault.length)].map((_, index) => {
   const keyStates = keyDefault.map((s, index) => {
